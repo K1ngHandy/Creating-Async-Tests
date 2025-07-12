@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const getInitialForm = () => ({ name: '', favFood: '' });
+const getInitialForm = () => ({ user: '', favFood: '' });
 
 export default function App() {
 	const [form, setForm] = useState(getInitialForm());
@@ -11,8 +11,10 @@ export default function App() {
 	};
 	const submit = async (evt) => {
 		evt.preventDefault();
-		setForm(getInitialForm);
-		setInfo(`Success! ${form.user} likes ${form.favFood}`);
+		setTimeout(() => {
+			setForm(getInitialForm()); // reset form after submit
+			setInfo(`Success! ${form.user} likes ${form.favFood}`);
+		}, 5);
 	};
 
 	return (
